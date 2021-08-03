@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TMDB Box Office Prediction</title>
+
+    <!-- css -->
+
+  </head>
+
+  <body style="background-color:powderblue;">
+    <h3>TMDB Box Office Revenue Prediction</h3>
+    <div class="container">
+
+      <div class="row">
+        <form action="/predict" method="POST" class="col s12 hoverable card">
+          <div class="input-field col s6">
+            <label for="Budget">Budget(In Rs.)</label>
+            <input type="text" id="Budget" name="Budget" />
+          </div>
+
+          <div class="input-field col s6">
+            <label for="Popularity">Popularity(0-10)</label>
+            <input type="text" id="Popularity" name="Popularity" />
+          </div>
+
+          <div class="input-field col s6">
+            <label for="Runtime">Runtime(In mins.)</label>
+            <input type="text" id="Runtime" name="Runtime" />
+          </div>
+
+          <div class="input-field col s6">
+            <label for="Release_Year">Release Year(1970 onwards)</label>
+            <input type="text" id="Release_Year" name="Release Year" />
+          </div>
+
+          <div class="input-field col s6">
+            <label for="Release_Month">Release Month(0-11)</label>
+            <input type="text" id="Release_Month" name="Release_Month" />
+          </div>
+
+          <div class="input-field col s6">
+            <label for="Release_DOW">Release Day Of Week(0-6)</label>
+            <input type="text" id="Release_DOW" name="Release_DOW" />
+          </div>
+          <br>
+          <div class="input-field col s6">
+            <form method="POST" action="/">
+              <p2>Choose Movie Genres:</p2><br>
+              Comedy<input id="Genre1_1" type="checkbox" value="1" name="Genre1" />
+              <input id="Genre1_0" type="hidden" value="0" name="Genre1" />
+              Drama<input id="Genre2_1" type="checkbox" value="1" name="Genre2" />
+              <input id="Genre2_0" type="hidden" value="0" name="Genre2" />
+              Family<input id="Genre3_1" type="checkbox" value="1" name="Genre3" />
+              <input id="Genre3_0" type="hidden" value="0" name="Genre3" />
+              Romance<input id="Genre4_1" type="checkbox" value="1" name="Genre4" />
+              <input id="Genre4_0" type="hidden" value="0" name="Genre4" />
+			  Animation<input id="Genre5_1" type="checkbox" value="1" name="Genre5" />
+              <input id="Genre5_0" type="hidden" value="0" name="Genre5" />
+			  Adventure<input id="Genre6_1" type="checkbox" value="1" name="Genre6" />
+              <input id="Genre6_0" type="hidden" value="0" name="Genre6" />
+			  Horror<input id="Genre7_1" type="checkbox" value="1" name="Genre7" />
+              <input id="Genre7_0" type="hidden" value="0" name="Genre7" />
+			  Thriller<input id="Genre8_1" type="checkbox" value="1" name="Genre8" />
+              <input id="Genre8_0" type="hidden" value="0" name="Genre8" />
+			  Crime<input id="Genre9_1" type="checkbox" value="1" name="Genre9" />
+              <input id="Genre9_0" type="hidden" value="0" name="Genre9" />
+			  Action<input id="Genre10_1" type="checkbox" value="1" name="Genre10" />
+              <input id="Genre10_0" type="hidden" value="0" name="Genre10" />
+			  Science Fiction<input id="Genre11_1" type="checkbox" value="1" name="Genre11" />
+              <input id="Genre11_0" type="hidden" value="0" name="Genre11" />
+			  Mystery<input id="Genre12_1" type="checkbox" value="1" name="Genre12" />
+              <input id="Genre12_0" type="hidden" value="0" name="Genre12" />
+			  War<input id="Genre13_1" type="checkbox" value="1" name="Genre13" />
+              <input id="Genre13_0" type="hidden" value="0" name="Genre13" />
+			  History<input id="Genre14_1" type="checkbox" value="1" name="Genre14" />
+              <input id="Genre14_0" type="hidden" value="0" name="Genre14" />
+			  Documentary<input id="Genre15_1" type="checkbox" value="1" name="Genre15" />
+              <input id="Genre15_0" type="hidden" value="0" name="Genre15" /><br>
+              <br>
+              <p2>Choose movie's Production Companies:</p2><br>
+              Warner Bros.<input id="PCo1_1" type="checkbox" value="1" name="PCo1" />
+              <input id="PCo1_0" type="hidden" value="0" name="PCo1" />
+              Universal Pictures<input id="PCo2_1" type="checkbox" value="1" name="PCo2" />
+              <input id="PCo2_0" type="hidden" value="0" name="PCo2" />
+              Paramount Pictures<input id="PCo3_1" type="checkbox" value="1" name="PCo3" />
+              <input id="PCo3_0" type="hidden" value="0" name="PCo3" />
+              Twentieth Century Fox Film Corporation<input id="PCo4_1" type="checkbox" value="1" name="PCo4" />
+              <input id="PCo4_0" type="hidden" value="0" name="PCo4" />
+			  Columbia Pictures<input id="PCo5_1" type="checkbox" value="1" name="PCo5" />
+              <input id="PCo5_0" type="hidden" value="0" name="PCo5" />
+			  New Line Cinema<input id="PCo6_1" type="checkbox" value="1" name="PCo6" />
+              <input id="PCo6_0" type="hidden" value="0" name="PCo6" />
+			  Metro-Goldwyn-Mayer (MGM)<input id="PCo7_1" type="checkbox" value="1" name="PCo7" />
+              <input id="PCo7_0" type="hidden" value="0" name="PCo7" />
+			  Touchstone Pictures<input id="PCo8_1" type="checkbox" value="1" name="PCo8" />
+              <input id="PCo8_0" type="hidden" value="0" name="PCo8" />
+			  Columbia Pictures Corporation<input id="PCo9_1" type="checkbox" value="1" name="PCo9" />
+              <input id="PCo9_0" type="hidden" value="0" name="PCo9" />
+			  Relativity Media<input id="PCo10_1" type="checkbox" value="1" name="PCo10" />
+              <input id="PCo10_0" type="hidden" value="0" name="PCo10" />
+			  Walt Disney Pictures<input id="PCo11_1" type="checkbox" value="1" name="PCo11" />
+              <input id="PCo11_0" type="hidden" value="0" name="PCo11" />
+			  TriStar Pictures<input id="PCo12_1" type="checkbox" value="1" name="PCo12" />
+              <input id="PCo12_0" type="hidden" value="0" name="PCo12" />
+			  Village Roadshow Pictures<input id="PCo13_1" type="checkbox" value="1" name="PCo13" />
+              <input id="PCo13_0" type="hidden" value="0" name="PCo13" />
+			  United Artists<input id="PCo14_1" type="checkbox" value="1" name="PCo14" />
+              <input id="PCo14_0" type="hidden" value="0" name="PCo14" />
+			  Miramax Films<input id="PCo15_1" type="checkbox" value="1" name="PCo15" />
+              <input id="PCo15_0" type="hidden" value="0" name="PCo15" /><br>
+              <br>
+              <p2>Choose movie's Production Countries:</p2><br>
+              United States of America<input id="PCty1_1" type="checkbox" value="1" name="PCty1" />
+              <input id="PCty1_0" type="hidden" value="0" name="PCty1" />
+              United Kingdom<input id="PCty2_1" type="checkbox" value="1" name="PCty2" />
+              <input id="PCty2_0" type="hidden" value="0" name="PCty2" />
+              Germany<input id="PCty3_1" type="checkbox" value="1" name="PCty3" />
+              <input id="PCty3_0" type="hidden" value="0" name="PCty3" />
+              France<input id="PCty4_1" type="checkbox" value="1" name="PCty4" />
+              <input id="PCty4_0" type="hidden" value="0" name="PCty4" />
+			  Canada<input id="PCty5_1" type="checkbox" value="1" name="PCty5" />
+              <input id="PCty5_0" type="hidden" value="0" name="PCty5" />
+			  Australia<input id="PCty6_1" type="checkbox" value="1" name="PCty6" />
+              <input id="PCty6_0" type="hidden" value="0" name="PCty6" />
+			  Italy<input id="PCty7_1" type="checkbox" value="1" name="PCty7" />
+              <input id="PCty7_0" type="hidden" value="0" name="PCty7" />
+			  Japan<input id="PCty8_1" type="checkbox" value="1" name="PCty8" />
+              <input id="PCty8_0" type="hidden" value="0" name="PCty8" />
+			  Spain<input id="PCty9_1" type="checkbox" value="1" name="PCty9" />
+              <input id="PCty9_0" type="hidden" value="0" name="PCty9" />
+			  China<input id="PCty10_1" type="checkbox" value="1" name="PCty10" />
+              <input id="PCty10_0" type="hidden" value="0" name="PCty10" />
+			  Ireland<input id="PCty11_1" type="checkbox" value="1" name="PCty11" />
+              <input id="PCty11_0" type="hidden" value="0" name="PCty11" />
+			  India<input id="PCty12_1" type="checkbox" value="1" name="PCty12" />
+              <input id="PCty12_0" type="hidden" value="0" name="PCty12" />
+			  Czech Repkublic<input id="PCty13_1" type="checkbox" value="1" name="PCty13" />
+              <input id="PCty13_0" type="hidden" value="0" name="PCty13" />
+			  Hong Kong<input id="PCty14_1" type="checkbox" value="1" name="PCty14" />
+              <input id="PCty14_0" type="hidden" value="0" name="PCty14" />
+			  New Zealand<input id="PCty15_1" type="checkbox" value="1" name="PCty15" />
+              <input id="PCty15_0" type="hidden" value="0" name="PCty15" /><br>
+              <br>
+              <p2>Choose movie's related Keywords:</p2><br>
+              Murder<input id="Key1_1" type="checkbox" value="1" name="Key1" />
+              <input id="Key1_0" type="hidden" value="0" name="Key1" />
+              Women Director<input id="Key2_1" type="checkbox" value="1" name="Key2" />
+              <input id="Key2_0" type="hidden" value="0" name="Key2" />
+              Independent Film<input id="Key3_1" type="checkbox" value="1" name="Key3" />
+              <input id="Key3_0" type="hidden" value="0" name="Key3" />
+              Based on novel<input id="Key4_1" type="checkbox" value="1" name="Key4" />
+              <input id="Key4_0" type="hidden" value="0" name="Key4" />
+			  Violence<input id="Key5_1" type="checkbox" value="1" name="Key5" />
+              <input id="Key5_0" type="hidden" value="0" name="Key5" />
+			  Dystopia<input id="Key6_1" type="checkbox" value="1" name="Key6" />
+              <input id="Key6_0" type="hidden" value="0" name="Key6" />
+			  Sport<input id="Key7_1" type="checkbox" value="1" name="Key7" />
+              <input id="Key7_0" type="hidden" value="0" name="Key7" />
+			  Revenge<input id="Key8_1" type="checkbox" value="1" name="Key8" />
+              <input id="Key8_0" type="hidden" value="0" name="Key8" />
+			  Suspense<input id="Key9_1" type="checkbox" value="1" name="Key9" />
+              <input id="Key9_0" type="hidden" value="0" name="Key9" />
+			  Biography<input id="Key10_1" type="checkbox" value="1" name="Key10" />
+              <input id="Key10_0" type="hidden" value="0" name="Key10" />
+			  Sequel<input id="Key11_1" type="checkbox" value="1" name="Key11" />
+              <input id="Key11_0" type="hidden" value="0" name="Key11" />
+			  Police<input id="Key12_1" type="checkbox" value="1" name="Key12" />
+              <input id="Key12_0" type="hidden" value="0" name="Key12" />
+			  Sex<input id="Key13_1" type="checkbox" value="1" name="Key13" />
+              <input id="Key13_0" type="hidden" value="0" name="Key13" />
+			  During credits stinger<input id="Key14_1" type="checkbox" value="1" name="Key14" />
+              <input id="Key14_0" type="hidden" value="0" name="Key14" />
+			  After credits stinger<input id="Key15_1" type="checkbox" value="1" name="Key15" />
+              <input id="Key15_0" type="hidden" value="0" name="Key15" /><br>
+              <br>
+              <p2>Choose movie's Cast members:</p2><br>
+              J.K.Simmons<input id="Cast1_1" type="checkbox" value="1" name="Cast1" />
+              <input id="Cast1_0" type="hidden" value="0" name="Cast1" />
+              Samuel L.Jackson<input id="Cast2_1" type="checkbox" value="1" name="Cast2" />
+              <input id="Cast2_0" type="hidden" value="0" name="Cast2" />
+              Morgan Freeman<input id="Cast3_1" type="checkbox" value="1" name="Cast3" />
+              <input id="Cast3_0" type="hidden" value="0" name="Cast3" />
+              Bruce Willis<input id="Cast4_1" type="checkbox" value="1" name="Cast4" />
+              <input id="Cast4_0" type="hidden" value="0" name="Cast4" />
+			  Bruce McGill<input id="Cast5_1" type="checkbox" value="1" name="Cast5" />
+              <input id="Cast5_0" type="hidden" value="0" name="Cast5" />
+			  Robert De Niro<input id="Cast6_1" type="checkbox" value="1" name="Cast6" />
+              <input id="Cast6_0" type="hidden" value="0" name="Cast6" />
+			  Nicolas Cage<input id="Cast7_1" type="checkbox" value="1" name="Cast7" />
+              <input id="Cast7_0" type="hidden" value="0" name="Cast7" />
+			  Jason Statham<input id="Cast8_1" type="checkbox" value="1" name="Cast8" />
+              <input id="Cast8_0" type="hidden" value="0" name="Cast8" />
+			  George Clooney<input id="Cast9_1" type="checkbox" value="1" name="Cast9" />
+              <input id="Cast9_0" type="hidden" value="0" name="Cast9" />
+			  Forest Whitaker<input id="Cast10_1" type="checkbox" value="1" name="Cast10" />
+              <input id="Cast10_0" type="hidden" value="0" name="Cast10" />
+			  Ed Harris<input id="Cast11_1" type="checkbox" value="1" name="Cast11" />
+              <input id="Cast11_0" type="hidden" value="0" name="Cast11" />
+			  Sigourney Weaver<input id="Cast12_1" type="checkbox" value="1" name="Cast12" />
+              <input id="Cast12_0" type="hidden" value="0" name="Cast12" />
+			  Owen Neeson<input id="Cast13_1" type="checkbox" value="1" name="Cast13" />
+              <input id="Cast13_0" type="hidden" value="0" name="Cast13" />
+			  Liam Neeson<input id="Cast14_1" type="checkbox" value="1" name="Cast14" />
+              <input id="Cast14_0" type="hidden" value="0" name="Cast14" />
+			  Keith David<input id="Cast15_1" type="checkbox" value="1" name="Cast15" />
+              <input id="Cast15_0" type="hidden" value="0" name="Cast15 " /><br>
+              <br>
+              <p2>Choose movie's Crew members:</p2><br>
+              Robert Rodriguez<input id="Crew1_1" type="checkbox" value="1" name="Crew1" />
+              <input id="Crew1_0" type="hidden" value="0" name="Crew1" />
+              James Newton Howard<input id="Crew2_1" type="checkbox" value="1" name="Crew2" />
+              <input id="Crew2_0" type="hidden" value="0" name="Crew2" />
+              Francine Maisler<input id="Crew3_1" type="checkbox" value="1" name="Crew3" />
+              <input id="Crew3_0" type="hidden" value="0" name="Crew3" />
+              Deborah Aquila<input id="Crew4_1" type="checkbox" value="1" name="Crew4" />
+              <input id="Crew4_0" type="hidden" value="0" name="Crew4" />
+			  Avy Kaufman<input id="Crew5_1" type="checkbox" value="1" name="Crew5" />
+              <input id="Crew5_0" type="hidden" value="0" name="Crew5" />
+			  Jerry Goldsmith<input id="Crew6_1" type="checkbox" value="1" name="Crew6" />
+              <input id="Crew6_0" type="hidden" value="0" name="Crew6" />
+			  Mary Vernieu<input id="Crew7_1" type="checkbox" value="1" name="Crew7" />
+              <input id="Crew7_0" type="hidden" value="0" name="Crew7" />
+			  Steven Spielberg<input id="Crew8_1" type="checkbox" value="1" name="Crew8" />
+              <input id="Crew8_0" type="hidden" value="0" name="Crew8" />
+			  Tricia Wood<input id="Crew9_1" type="checkbox" value="1" name="Crew9" />
+              <input id="Crew9_0" type="hidden" value="0" name="Crew9" />
+			  John Debney<input id="Crew10_1" type="checkbox" value="1" name="Crew10" />
+              <input id="Crew10_0" type="hidden" value="0" name="Crew10" />
+			  Janet Hirshenson<input id="Crew11_1" type="checkbox" value="1" name="Crew11" />
+              <input id="Crew11_0" type="hidden" value="0" name="Crew11" />
+			  Mindy Marin<input id="Crew12_1" type="checkbox" value="1" name="Crew12" />
+              <input id="Crew12_0" type="hidden" value="0" name="Crew12" />
+			  John Papsidera<input id="Crew13_1" type="checkbox" value="1" name="Crew13" />
+              <input id="Crew13_0" type="hidden" value="0" name="Crew13" />
+			  Neal H. Moritz<input id="Crew14_1" type="checkbox" value="1" name="Crew14" />
+              <input id="Crew14_0" type="hidden" value="0" name="Crew14" />
+			  James Horner<input id="Crew15_1" type="checkbox" value="1" name="Crew15" />
+              <input id="Crew15_0" type="hidden" value="0" name="Crew15 " /><br>
+              <br>
+              <br>
+
+              <button
+                class="btn waves-effect waves-light blue right"
+                type="submit"
+                value="submit"
+              >
+                Predict Revenue
+              </button>
+
+            </form>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
